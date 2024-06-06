@@ -1,4 +1,4 @@
-# Cookicutter for Django with Postgres, Gunicorn, and Nginx
+# Cookiecutter for Django with Postgres, Gunicorn, and Nginx
 
 ## O que este projeto faz?
 
