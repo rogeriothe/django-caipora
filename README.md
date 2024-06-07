@@ -1,4 +1,4 @@
-## Cookiecutter for Django with Postgres, Gunicorn, and Nginx
+## Cookiecutter for Django with Celery, Postgres, Gunicorn, and Nginx
 
 ### O que este projeto faz?
 
@@ -19,6 +19,7 @@ Executar
 ```sh
 $ make dev
 ```
+
 ou
 
 ```sh
@@ -34,6 +35,7 @@ Executar
 ```sh
 $ make prod
 ```
+
 ou
 
 ```sh

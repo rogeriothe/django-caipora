@@ -7,5 +7,7 @@
     "pg_password_production": "{{ random_ascii_string(20) }}",
     "database_develop": "{{ cookiecutter.project_slug  + '_dev' }}",    
     "pg_password_develop": "{{ random_ascii_string(20) }}",
-    "secret_key": "{{ random_ascii_string(50) }}"
+    "secret_key": "{{ random_ascii_string(50) }}",
+    "rabbitmq_password": "{{ random_ascii_string(20) }}",
+    "sentry_dsn": "'empty'"
 }
