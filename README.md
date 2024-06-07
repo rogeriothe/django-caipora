@@ -43,4 +43,4 @@ $ docker-compose -f docker-compose.prod.yml up -d --build
 ```
 ### Sugestões
 
-Comentar no docker-compose.prod.yml os containers rabbitmq, worker e flower caso não vá usar o Celery.
+- Comentar no docker-compose.prod.yml os containers rabbitmq, worker e flower caso não vá usar o Celery.
