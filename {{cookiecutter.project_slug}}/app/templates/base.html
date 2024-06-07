@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% raw %}{% load static %}{% endraw %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{cookiecutter.project_slug}}</title>
+    {% raw %}
+    <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">    
+    <script src="{% static 'dist/js/bootstrap.bundle.min.js' %}"></script>
+    {% endraw %}
+</head>
+<body>    
+    {% raw %}
+    {% block content %}
+    {% endblock content %}    
+    {% endraw %}
+</body>
+</html>
