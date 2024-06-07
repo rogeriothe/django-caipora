@@ -23,7 +23,7 @@ $ make dev
 ou
 
 ```sh
-$ docker-compose up --build
+$ docker compose up --build
 ```
 
 ### Production
@@ -39,7 +39,7 @@ $ make prod
 ou
 
 ```sh
-$ docker-compose -f docker-compose.prod.yml up -d --build
+$ docker compose -f docker-compose.prod.yml up -d --build
 ```
 ### Sugestões
 
