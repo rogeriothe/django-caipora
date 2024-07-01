@@ -41,9 +41,11 @@ if not DEBUG and SENTRY_DSN != "empty":
 
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
 # For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS", default="localhost 127.0.0.1 [::1]").split(" ")
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:1337"]
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    "DJANGO_TRUSTED_ORIGINS", default="localhost 127.0.0.1 [::1]").split(" ")
 
 # Application definition
 
@@ -146,6 +148,7 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "deploy/media")
 MEDIA_URL = "/media/"
+
 
 
 # Default primary key field type

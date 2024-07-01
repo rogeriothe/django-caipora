@@ -3,6 +3,7 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "author_name": "Your Name",
     "email": "your.email@example.com",
+    "public_url": "example.com",
     "database_production": "{{ cookiecutter.project_slug + '_prod' }}",
     "pg_password_production": "{{ random_ascii_string(20) }}",
     "database_develop": "{{ cookiecutter.project_slug  + '_dev' }}",    
