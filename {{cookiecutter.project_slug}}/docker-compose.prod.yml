@@ -29,30 +29,36 @@ services:
     ports:
       - 1337:80
 
-  rabbitmq:
-    image: rabbitmq:3-management
+  redis:
+    image: redis:7
     restart: always
-    # ports: 
-    # - 25672:25672 # (erlang) communication between the nodes and CLI tool
-    # - 15672:15672 # communication with the web management API
-
-    env_file:
-      - ./.env.dev
+    command: ["redis-server", "--requirepass", "{{cookiecutter.redis_password}}"]
 
   worker:
     build: ./app
     command: celery -A {{cookiecutter.project_slug}} worker -l info # --concurrency=8
     env_file:
-      - ./.env.dev
+      - ./.env.prod
     depends_on:
-      - rabbitmq
+      - redis
     restart: always
-    # ports: 
+    # ports:
     # - 5555:5555
+
+  beat:
+    build: ./app
+    command: celery -A {{cookiecutter.project_slug}} beat -l info
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - redis
+    restart: always
 
   flower:
     image: mher/flower:0.9.7
-    command: ['flower', '--broker=amqp://{{cookiecutter.project_slug}}:{{cookiecutter.rabbitmq_password}}@rabbitmq:5672//', '--port=5556']  # Set broker URL to RabbitMQ
+    command: ['flower', '--broker=redis://:{{cookiecutter.redis_password}}@redis:6379/0', '--port=5556']
+    env_file:
+      - ./.env.prod
     ports:
       - 5556:5556
     depends_on:
